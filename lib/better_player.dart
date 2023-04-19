@@ -22,7 +22,11 @@ class _VideoScreenState extends State<VideoScreen> {
 
   void _setupVideoPlayer() {
     _betterPlayerController = BetterPlayerController(
-         BetterPlayerConfiguration(
+        const BetterPlayerConfiguration(
+          deviceOrientationsOnFullScreen: [
+            DeviceOrientation.landscapeLeft,
+            DeviceOrientation.landscapeRight
+          ],
           aspectRatio: 16 / 9,
           autoPlay: true,
           looping: true,
@@ -33,17 +37,8 @@ class _VideoScreenState extends State<VideoScreen> {
               showControls: true,
               enableSkips: true,
               enableOverflowMenu: true,
-            
               enableFullscreen: true),
-  deviceOrientationsAfterFullScreen: [
-        DeviceOrientation.portraitUp,
-        DeviceOrientation.portraitDown,
-        DeviceOrientation.landscapeLeft,
-        DeviceOrientation.landscapeRight,
-      ],
-              
-
-
+          deviceOrientationsAfterFullScreen: [DeviceOrientation.portraitUp],
         ),
         betterPlayerDataSource: BetterPlayerDataSource(
             BetterPlayerDataSourceType.network, widget.videoUrl));
