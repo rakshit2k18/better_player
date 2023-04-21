@@ -1,4 +1,5 @@
 import 'package:betterplayer/better_player.dart';
+import 'package:betterplayer/pagination.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: VideoScreen(videoUrl: 'https://spidernet.b-cdn.net/6435600bc7f90/playlist.m3u8'),
+      home: Pagination(),
+     // home: VideoScreen(videoUrl: 'https://spidernet.b-cdn.net/6435600bc7f90/playlist.m3u8'),
     );
   }
 }
