@@ -16,8 +16,7 @@ class _PaginationState extends State<Pagination> {
 
   int page = 1;
 
-
-bool hasMore=true;
+  bool hasMore = true;
 
   @override
   void initState() {
@@ -37,7 +36,6 @@ bool hasMore=true;
   }
 
   Future fetch() async {
-
     const limit = 25;
     final url = Uri.parse(
         'https://jsonplaceholder.typicode.com/posts?_limit=$limit&_page=$page');
@@ -47,17 +45,14 @@ bool hasMore=true;
       final List newItems = json.decode(response.body);
       setState(() {
         page++;
-  if(newItems.length <limit){
-hasMore=false;
-  }
-items.addAll(newItems.map((item){
-  final number=item['id'];
-  
-  return 'Item $number';
-  
-} ).toList()
-);
-      
+        if (newItems.length < limit) {
+          hasMore = false;
+        }
+        items.addAll(newItems.map((item) {
+          final number = item['id'];
+
+          return 'Item $number';
+        }).toList());
       });
     }
   }
@@ -79,10 +74,9 @@ items.addAll(newItems.map((item){
               );
             } else {
               return Center(
-                  child:hasMore?
-                      const CircularProgressIndicator()
-                      :const Text("No more data to show")
-                );
+                  child: hasMore
+                      ? const CircularProgressIndicator()
+                      : const Text("No more data to show"));
             }
           }),
     );

@@ -12,9 +12,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       home: Pagination(),
-     // home: VideoScreen(videoUrl: 'https://spidernet.b-cdn.net/6435600bc7f90/playlist.m3u8'),
+      // home: VideoScreen(videoUrl: 'https://spidernet.b-cdn.net/6435600bc7f90/playlist.m3u8'),
     );
   }
 }
